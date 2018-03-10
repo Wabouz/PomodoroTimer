@@ -1,6 +1,10 @@
 import time
 import os
+import ctypes
 
+ctypes.windll.kernel32.SetConsoleTitleA("Pomodoro Timer")
+
+os.system('color 0f')
 os.system('mode con: cols=60 lines=23')  # This instruction is to set the cmd windows to the good dimensions
 Pomodoro = "      ____                            __                \n     / __ \____  ____ ___  ____  ____/ /___  _________  \n    / /_/ / __ \/ __ `__ \/ __ \/ __  / __ \/ ___/ __ \ \n   / ____/ /_/ / / / / / / /_/ / /_/ / /_/ / /  / /_/ / \n  /_/    \____/_/ /_/ /_/\____/\__,_/\____/_/   \____/ \n\n              _______                              \n             /_  __(_)___ ___  ___  _____          \n              / / / / __ `__ \/ _ \/ ___/          \n             / / / / / / / / /  __/ /              \n            /_/ /_/_/ /_/ /_/\___/_/               \n\n\n"
 
@@ -111,6 +115,11 @@ def timer():
         print("                          W O R K \n")
         time.sleep(1 - 0.004)  # My functions took 0.004 seconds per loop to execute
         a -= 1
+    for i in range(3):
+        os.system('color 2f')
+        time.sleep(0.2)
+        os.system('color 0f')
+        time.sleep(0.2)
     while b > 0:
         c = horaire(b)
         print(Pomodoro)
@@ -119,6 +128,11 @@ def timer():
         print("                         B R E A K \n")
         time.sleep(1 - 0.004)
         b -= 1
+    for i in range(3):
+        os.system('color 4f')
+        time.sleep(0.2)
+        os.system('color 0f')
+        time.sleep(0.2)
     return
 
 
