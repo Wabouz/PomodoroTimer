@@ -1,6 +1,7 @@
 import time
 import os
 import ctypes
+import winsound
 
 ctypes.windll.kernel32.SetConsoleTitleA("Pomodoro Timer")
 
@@ -106,7 +107,7 @@ def horaire(d):  # Given a number of seconds d, returns the ASCII art of the tim
 def timer():
     a = work
     b = pause
-    while a > 0:
+    while a >= 0:
         map(print, horaire(a))
         c = horaire(a)
         print(Pomodoro)
@@ -115,12 +116,14 @@ def timer():
         print("                          W O R K \n")
         time.sleep(1 - 0.004)  # My functions took 0.004 seconds per loop to execute
         a -= 1
-    for i in range(3):
+    for i in range(6):
+        winsound.Beep(880, 200)
         os.system('color 2f')
+        winsound.Beep(880, 200)
         time.sleep(0.2)
         os.system('color 0f')
-        time.sleep(0.2)
-    while b > 0:
+    input("Appuyez sur n'importe quelle touche pour passer à la pause")
+    while b >= 0:
         c = horaire(b)
         print(Pomodoro)
         for i in range(6):
@@ -128,11 +131,13 @@ def timer():
         print("                         B R E A K \n")
         time.sleep(1 - 0.004)
         b -= 1
-    for i in range(3):
+    for i in range(6):
+        winsound.Beep(880, 200)
         os.system('color 4f')
+        winsound.Beep(880, 200)
         time.sleep(0.2)
         os.system('color 0f')
-        time.sleep(0.2)
+    input("Appuyez sur n'importe quelle touche pour passer au travail")
     return
 
 
